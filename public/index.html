@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
+    <link type="text/css" rel="stylesheet" href="css/tail.datetime-default.css" />
     
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,6 +17,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -29,9 +30,16 @@
     <title>React App</title>
   </head>
   <body>
-    
-  
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="text/javascript" src="js/tail.datetime.min.js"></script>
+        <!-- <script type="text/javascript" src="langs/tail.datetime-{lang}.js"></script> -->
+
+        <input type="text" id =""class="tail-datetime-field" />
+
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(){
+                tail.DateTime(".tail-datetime-field", { /* Your Options */ });
+            });
+        </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

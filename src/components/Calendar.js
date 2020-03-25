@@ -2,12 +2,13 @@ import React from 'react'
 
 import moment from "moment"
 
+
 export default class Calender extends React.Component {
 
     state = {
         dateObject: moment()
     }
-    weekdayShort = moment.weekdaysShort()
+    weekdayshort = moment.weekdaysShort()
 
     firstDayOfMonth = () => {
         let dateObject = this.state.dateObject
@@ -26,7 +27,7 @@ export default class Calender extends React.Component {
 
     
     render(){
-        let weekday = this.weekdayShort.map(day => {
+        let weekdayshortname = this.weekdayshort.map(day => {
             return(
                 <th key={day} className="week-day">
                     {day}
@@ -88,7 +89,7 @@ export default class Calender extends React.Component {
                     
                     <tbody>
                         <tr>
-                            {weekday}
+                            {weekdayshortname }
                         </tr>
                         {rowElements}
                     </tbody>       
