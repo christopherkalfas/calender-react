@@ -1,6 +1,7 @@
 import React from 'react'
 
 import moment from "moment"
+import "./calendar.css"
 
 
 export default class Calender extends React.Component {
@@ -36,32 +37,32 @@ export default class Calender extends React.Component {
             )
         })
 
-        let blankDays = []
+        let blanks = []
         for( let i = 0; i < this.firstDayOfMonth(); i += 1){
-            blankDays.push(
-                <td key={i} className="calender-day blank">
+            blanks.push(
+                <td key={i} className="calender-day empty">
                     {""}
                 </td>)
         }
-        console.log("Blank Spaces: ", blankDays)
+        console.log("Blank Spaces: ", blanks)
 
         let daysInMonth = []
-        for( let day = 1; day <= this.daysInMonth(); day += 1){
-            let currentDay = day === this.currentDay() ? "today" : ""
+        for( let d = 1; d <= this.daysInMonth(); d += 1){
+            let currentDay = d === this.currentDay() ? "today" : ""
             daysInMonth.push(
-                <td key={day} className={`calender-day ${currentDay}`} >
-                    {day}
+                <td key={d} className={`calender-day ${currentDay}`} >
+                    {d}
                 </td>
             )
         }
 
         console.log("Day: ", daysInMonth)
 
-        const totalCalenderSlots = [...blankDays, ...daysInMonth]
+        const totalSlots = [...blanks, ...daysInMonth]
         let rows = []
         let cells = []
 
-        totalCalenderSlots.forEach((row, i) => {
+        totalSlots.forEach((row, i) => {
             if( i % 7 !== 0){
                 cells.push(row)
             } else {
@@ -69,7 +70,7 @@ export default class Calender extends React.Component {
                 cells = []
                 cells.push(row)
             }
-            if( i === totalCalenderSlots.length -1){
+            if( i === totalSlots.length -1){
                 rows.push(cells)
             }
         })
@@ -84,7 +85,7 @@ export default class Calender extends React.Component {
 
         return(
             <div className="calender-container">
-                <h1>Kalfender</h1>
+                <h1>Kalfendar</h1>
                 <table className="calender">
                     
                     <tbody>
